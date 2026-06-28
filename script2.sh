@@ -9,7 +9,7 @@ echo "####################################################" >> "$REPORT"
 
 echo -e "----Disk Health Status----" >> $REPORT
 
-dmesq | grep -i "error" | tail -n 5 >> "$REPORT"
+dmesg | grep -i "error" | tail -n 5 >> "$REPORT"
 if [ $? -ne 0 ]; then
 	echo "No disk errors found in kernel logs. Status: OK" >> "$REPORT"
 fi
