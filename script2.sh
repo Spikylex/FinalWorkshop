@@ -10,7 +10,7 @@ echo "####################################################" >> "$REPORT"
 echo -e "----Disk Health Status----" >> $REPORT
 
 dmesg | grep -i "error" | tail -n 5 >> "$REPORT"
-if [ $? -ne 0 ]; then
+if [ "${PIPESTATUS[1]}" -ne 0 ]; then
 	echo "No disk errors found in kernel logs. Status: OK" >> "$REPORT"
 fi
 
